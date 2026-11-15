@@ -1,0 +1,13 @@
+original/FeeWindowWithConstants.java.txt -> FeeWindow.java:18: error: unreported exception SQLException; must be caught or declared to be thrown
+      Connection c = DriverManager.getConnection(URL, USER, PWD);
+                                                ^
+original/FeeWindowWithConstants.java.txt -> FeeWindow.java:19: error: unreported exception SQLException; must be caught or declared to be thrown
+      c.createStatement().executeUpdate("INSERT INTO fees VALUES('" + regNo.getText() + "'," + a + ")");
+                       ^
+original/FeeWindowWithConstants.java.txt -> FeeWindow.java:19: error: unreported exception SQLException; must be caught or declared to be thrown
+      c.createStatement().executeUpdate("INSERT INTO fees VALUES('" + regNo.getText() + "'," + a + ")");
+                                       ^
+original/FeeWindowWithConstants.java.txt -> FeeWindow.java:20: error: unreported exception InterruptedException; must be caught or declared to be thrown
+      Thread.sleep(3000);          // wait for bank confirmation
+                  ^
+4 errors

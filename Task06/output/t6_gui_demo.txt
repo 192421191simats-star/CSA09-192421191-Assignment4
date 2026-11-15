@@ -1,0 +1,25 @@
+startup, before events arrive: Register enabled=false ; status: Starting...
+events loaded: Connected to in-memory test double - 6 events, 57 sample registrations loaded
+  screenshot screenshots/t6_1_register_screen.png  <- Task 6 - Register screen (JMenuBar File/View/Help, CardLayout card 'register');
+  screenshot screenshots/t6_2a_normal_filled.png  <- TC1 normal registration - form filled: 192311450, Keerthana S, CSE, year 2, Inter-college Debate
+TC1 result: [OK] Registered 192311450 (Keerthana S) for Inter-college Debate.
+  screenshot screenshots/t6_2b_normal_registered.png  <- TC1 normal registration - saved through RegistrationService -> RegistrationDao (INSERT); confirmation shown
+TC2 invalid: [X] Register number must be exactly 9 digits. | [X] Name may contain only letters, spaces and dots (2-60 characters). | [X] E-mail address is not valid. | [X] Select a department. | [X] Select the year of study (1-4). | [X] Select an event. |
+  screenshot screenshots/t6_3_invalid_input.png  <- TC2 invalid input - rejected on the EDT before any database work: one message per field, invalid fields outlined in red
+TC3 duplicate 192393551 / event 5: dialog 'Duplicate registration', message: [X] 192393551 is already registered for Battle of Bands.
+  screenshot screenshots/t6_4_duplicate_dialog.png  <- TC3 duplicate - 192393551 is already registered for this event (sample data):
+TC4 full event: [X] Photography Walk is full (3 places). |
+  screenshot screenshots/t6_5_event_full.png  <- TC4 event full - Photography Walk already has 3 of 3 places: registration refused
+  screenshot screenshots/t6_6_view_menu.png  <- Task 6 - View menu open: Register student (Ctrl+1) / Registrations (Ctrl+2)
+TC5 list loading: progress visible=true, event-thread latency during the query 1 ms
+  screenshot screenshots/t6_7_loading.png  <- TC5 - Registrations card: the page query runs in a SwingWorker ('Loading...' bar);
+TC5 loaded: Page 1 of 3  (58 registrations) ; rows in table 20
+  screenshot screenshots/t6_8_list_page1.png  <- TC5 - page 1 loaded with LIMIT 20 OFFSET 0; includes the registration made in TC1
+TC6 Next: Page 2 of 3  (58 registrations) ; first row id 21
+  screenshot screenshots/t6_9_list_page2.png  <- TC6 paging - Next clicked: page 2 (LIMIT 20 OFFSET 20)
+TC7 filter Hackathon 24h (2026-12-02): Page 1 of 1  (18 registrations)
+  screenshot screenshots/t6_10_filter_event.png  <- TC7 filter - event 'Hackathon 24h' selected: only its registrations (WHERE r.event_id = ?), paging restarts at page 1
+  screenshot screenshots/t6_11_export_chooser.png  <- TC8 export - File > Export CSV... opens a JFileChooser (modal dialog)
+TC8 export: Exported 18 registrations to registrations_hackathon.csv ; file lines 19
+  screenshot screenshots/t6_12_exported.png  <- TC8 export - all rows of the current filter written in a SwingWorker; status bar confirms
+File > Exit -> window displayable = false

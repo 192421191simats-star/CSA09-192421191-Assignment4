@@ -1,0 +1,16 @@
+original/FeeWindow.java:17: error: cannot find symbol
+      Connection c = DriverManager.getConnection(URL, USER, PWD);
+                                                 ^
+  symbol:   variable URL
+  location: class FeeWindow
+original/FeeWindow.java:17: error: cannot find symbol
+      Connection c = DriverManager.getConnection(URL, USER, PWD);
+                                                      ^
+  symbol:   variable USER
+  location: class FeeWindow
+original/FeeWindow.java:17: error: cannot find symbol
+      Connection c = DriverManager.getConnection(URL, USER, PWD);
+                                                            ^
+  symbol:   variable PWD
+  location: class FeeWindow
+3 errors

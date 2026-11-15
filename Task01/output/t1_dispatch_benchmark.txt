@@ -1,0 +1,6 @@
+k         if-else chain: ns/event   own listener: ns/event  bytes for k listeners
+3                           17.53                     3.57                    872
+10                          49.06                     3.53                   1008
+50                         156.19                     3.53                   1808
+100                        204.85                     1.77                   2808
+(events pick a random button; the chain needs (k+1)/2 string comparisons on average)  checksum 232

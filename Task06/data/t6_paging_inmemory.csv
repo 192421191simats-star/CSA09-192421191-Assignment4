@@ -1,0 +1,7 @@
+approach,load_ms,edt_max_delay_ms,retained_heap_kb,rows_in_memory
+all at once on the EDT,55.037,55.0,13940.2,100000
+all at once in a SwingWorker,49.817,0.3,13940.2,100000
+paged LIMIT 20 OFFSET 0 (SwingWorker),0.269,0.2,2.6,20
+paged LIMIT 20 OFFSET 50000,1.140,0.2,2.6,20
+paged LIMIT 20 OFFSET 99980,1.155,0.2,2.6,20
+COUNT(*) for the page indicator,3.066,0.2,0.0,0

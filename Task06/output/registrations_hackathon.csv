@@ -1,0 +1,19 @@
+reg_id,reg_no,student_name,email,dept,year,event,registered_at
+4,192342831,Gokul R,gokul.2831@saveetha.ac.in,AIDS,2,Hackathon 24h,2026-11-10T11:28
+10,192353985,Karthik Iyer,karthik.3985@saveetha.ac.in,AIDS,4,Hackathon 24h,2026-11-10T15:10
+11,192312235,Surya Pillai,surya.2235@saveetha.ac.in,IT,3,Hackathon 24h,2026-11-10T15:47
+13,192325312,Deepika Krishnan,deepika.5312@saveetha.ac.in,EEE,2,Hackathon 24h,2026-11-10T17:01
+15,192395905,Nandhini M,nandhini.5905@saveetha.ac.in,AIDS,2,Hackathon 24h,2026-11-10T18:15
+19,192335966,Lavanya Pillai,lavanya.5966@saveetha.ac.in,CIVIL,1,Hackathon 24h,2026-11-10T20:43
+24,192314826,Arun S,arun.4826@saveetha.ac.in,IT,4,Hackathon 24h,2026-11-10T23:48
+25,192358910,Surya Kumar,surya.8910@saveetha.ac.in,EEE,4,Hackathon 24h,2026-11-11T00:25
+30,192396887,Deepika R,deepika.6887@saveetha.ac.in,AIDS,4,Hackathon 24h,2026-11-11T03:30
+31,192335294,Manoj Pillai,manoj.5294@saveetha.ac.in,IT,3,Hackathon 24h,2026-11-11T04:07
+32,192342098,Deepika Natarajan,deepika.2098@saveetha.ac.in,EEE,3,Hackathon 24h,2026-11-11T04:44
+33,192359103,Ajay Pillai,ajay.9103@saveetha.ac.in,MECH,3,Hackathon 24h,2026-11-11T05:21
+36,192359782,Swetha Raj,swetha.9782@saveetha.ac.in,ECE,2,Hackathon 24h,2026-11-11T07:12
+37,192393220,Keerthana R,keerthana.3220@saveetha.ac.in,CSE,2,Hackathon 24h,2026-11-11T07:49
+46,192387221,Meena R,meena.7221@saveetha.ac.in,CIVIL,2,Hackathon 24h,2026-11-11T13:22
+49,192385211,Karthik M,karthik.5211@saveetha.ac.in,AIDS,3,Hackathon 24h,2026-11-11T15:13
+52,192378438,Arun Raj,arun.8438@saveetha.ac.in,AIDS,2,Hackathon 24h,2026-11-11T17:04
+55,192377456,Manoj Pillai,manoj.7456@saveetha.ac.in,CSE,3,Hackathon 24h,2026-11-11T18:55

@@ -1,0 +1,24 @@
+seeded 100,000 registrations in 359 ms (JDBC batch)
+
+approach (100,000 rows, median of 5)          load ms   EDT max delay ms      retained heap  rows held
+all at once on the EDT                           55.0               55.0            13.6 MB    100,000
+all at once in a SwingWorker                     49.8                0.3            13.6 MB    100,000
+paged, first page (OFFSET 0)                    0.269                0.2             2.6 KB         20
+paged, middle page (OFFSET 50,000)              1.140                                               20
+paged, last page (OFFSET 99,980)                1.155                                               20
+COUNT(*) for 'Page x of y'                      3.066
+(model.setRows of 100,000 rows on the EDT: 0.61 ms - JTable paints only the visible rows)
+Raw data: data/t6_paging_inmemory.csv  (driver: jdbc:campusdb:bench?schema=sql/schema.sql)
+
+=== simulated network: 1 ms per statement + 5 us per row ===
+seeded 100,000 registrations in 396 ms (JDBC batch)
+
+approach (100,000 rows, median of 5)          load ms   EDT max delay ms      retained heap  rows held
+all at once on the EDT                          534.7              534.6            12.6 MB    100,000
+all at once in a SwingWorker                    535.4                2.0            12.6 MB    100,000
+paged, first page (OFFSET 0)                    1.640                0.2             2.6 KB         20
+paged, middle page (OFFSET 50,000)              2.495                                               20
+paged, last page (OFFSET 99,980)                3.121                                               20
+COUNT(*) for 'Page x of y'                      4.599
+(model.setRows of 100,000 rows on the EDT: 0.29 ms - JTable paints only the visible rows)
+Raw data: data/t6_paging_network.csv  (driver: jdbc:campusdb:bench?schema=sql/schema.sql&latencyMs=1&rowMicros=5)

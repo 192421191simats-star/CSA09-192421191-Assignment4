@@ -1,0 +1,26 @@
+=== Original structure (OriginalBehaviourDemo) ===
+Paid
+  D4: after clicking Pay, a task posted to the event thread waited 2765 ms (window frozen: no repaint, no typing, no clicks)
+      SQL that would run: INSERT INTO fees VALUES('192311001',45000.0) ; console: [Paid]
+  screenshot screenshots/t1_1_original_after_pay.png  <- Task 1.1 - original: Pay clicked -> window was frozen for 2765 ms (sleep on the EDT);
+Paid
+  D7: register number typed as 1'); DROP TABLE fees; --  -> SQL text: INSERT INTO fees VALUES('1'); DROP TABLE fees; --',100.0)
+  UNCAUGHT on AWT-EventQueue-0: java.lang.NumberFormatException: For input string: "45k"
+  D3: amount '45k' -> AWT-EventQueue-0: java.lang.NumberFormatException: For input string: "45k" ; message to the user: none
+  screenshot screenshots/t1_2_original_invalid_amount.png  <- Task 1.1 - original: amount '45k' -> NumberFormatException escapes on the event thread;
+  D6: Receipt clicked -> fields now regNo='' amount='' (the else branch cleared them)
+  screenshot screenshots/t1_3_original_receipt_clears.png  <- Task 1.1 - original: Receipt clicked -> the else branch CLEARS the form instead of showing a receipt
+  D2: ActionEvent with command new String("Pay") -> treated as Clear: regNo='' ; "Pay".equals(cmd)=true, "Pay" == cmd is false
+  D8: close button (WINDOW_CLOSING) -> window still displayable = true (no WindowListener)
+
+=== Redesigned FeeWindow + FeeService (bank delay 3 s, in-memory repository) ===
+  empty form + Pay -> Enter the register number.
+  screenshot screenshots/t1_4_redesign_empty.png  <- Task 1.2 - redesign: Pay with an empty form -> clear error message in the window
+  amount '45k' + Pay -> Amount must be a number, e.g. 45000 or 45000.50.
+  screenshot screenshots/t1_5_redesign_bad_amount.png  <- Task 1.2 - redesign: amount '45k' -> validation message, nothing sent to the bank
+  valid + Pay -> during the 3 s bank wait: event-thread latency 0 ms, Pay enabled=false, status: Processing payment - waiting for bank confirmation...
+  screenshot screenshots/t1_6_redesign_processing.png  <- Task 1.2 - redesign: during the 3-second bank wait the window stays responsive (event thread latency 0 ms);
+  after the worker finished -> Paid Rs 45000.50 - receipt RCPT-24001 (bank ref BNK880101)
+  screenshot screenshots/t1_7_redesign_paid.png  <- Task 1.2 - redesign: payment completed in the background -> confirmation with receipt number
+  screenshot screenshots/t1_8_redesign_receipt.png  <- Task 1.2 - redesign: Receipt button now shows the receipt
+  close button -> window displayable = false (DISPOSE_ON_CLOSE; no connection is held open between operations)

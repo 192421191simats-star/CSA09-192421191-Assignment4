@@ -1,0 +1,14 @@
+ID   test                                     actual                                                         result
+F1   valid payment                            Rs 45000.50 TESTREF                                            PASS
+F2   empty register number                    FeeValidationException: Enter the register number.             PASS
+F3   letters in amount                        FeeValidationException: Amount must be a number, e.g. 45000 or 45000.50. PASS
+F4   negative amount                          FeeValidationException: Amount must be greater than zero.      PASS
+F5   3 decimal places                         FeeValidationException: Amount can have at most 2 decimal places. PASS
+F6   over the limit                           FeeValidationException: Amount cannot exceed Rs 2,00,000 in one payment. PASS
+F7   SQL injection text as register number    FeeValidationException: Register number must be 9 digits.      PASS
+F8   receipt after payment                    RCPT-24001                                                     PASS
+F9   receipt with no payment                  FeeValidationException: No payment found for 192311999.        PASS
+F10  bank declines (over Rs 1,50,000)         PaymentFailedException: Bank declined the payment (limit Rs 1,50,000) PASS
+F11  nothing stored for rejected payments     1                                                              PASS
+F12  amount kept exactly (BigDecimal, no double rounding) 0.30                                                           PASS
+12 / 12 FeeService tests passed (no window, no database, no 3-second wait)

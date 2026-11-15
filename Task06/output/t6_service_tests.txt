@@ -1,0 +1,20 @@
+ID   Req    test                                                 actual                                                                           result
+T1   -      events load from the database                        6                                                                                PASS
+T2   R1-R6  valid registration accepted                          192311101 -> Hackathon 24h                                                       PASS
+T3   R7     same student, same event again                       DuplicateRegistrationException: 192311101 is already registered for Hackathon 24h. PASS
+T4   R7     same student, different event                        192311101 -> Tech Quiz                                                           PASS
+T5   R1     register no '12AB'                                   ValidationException: Register number must be exactly 9 digits.                   PASS
+T6   R2     name '7Divya'                                        ValidationException: Name may contain only letters, spaces and dots (2-60 characters). PASS
+T7   R3     e-mail 'divya@'                                      ValidationException: E-mail address is not valid.                                PASS
+T8   R4-R6  no department, year or event                         ValidationException: Select a department. Select the year of study (1-4). Select an event. PASS
+T9   R1-R6  every field empty -> one message per field           6 errors                                                                         PASS
+T10  R1     SQL text in register no is rejected, not executed    ValidationException: Register number must be exactly 9 digits.                   PASS
+T11  R8     4th registration for Photography Walk (capacity 3)   ValidationException: Photography Walk is full (3 places).                        PASS
+T12  R7     DB key blocks a duplicate that bypasses the service check DuplicateKeyException: Already registered (database key)                         PASS
+T13  R10    page 1 of all (50 rows, 20 per page)                 20 rows, page 1 of 3                                                             PASS
+T14  R10    last page                                            10 rows, page 3 of 3                                                             PASS
+T15  R10    filter Battle of Bands                               45 rows total, first page 20                                                     PASS
+T16  R10    page beyond the end is clamped                       page 3                                                                           PASS
+T17  R11    export filter Hackathon (all pages)                  1 rows, file has 2 lines                                                         PASS
+T18  R11    export all                                           50 rows                                                                          PASS
+18 / 18 tests passed  (database: jdbc:campusdb:unittest?schema=sql/schema.sql)
