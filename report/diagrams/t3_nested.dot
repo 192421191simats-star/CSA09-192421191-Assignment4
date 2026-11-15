@@ -1,0 +1,18 @@
+digraph G {
+  rankdir=TB; nodesep=0.2; ranksep=0.35;
+  node [shape=box, fontname="Helvetica", fontsize=9, style="rounded,filled", fillcolor="#f4f6fb", color="#1f3a68"];
+  edge [color="#666666", arrowsize=0.6];
+  F [label="LibrarySearchScreen : Frame\nBorderLayout", fillcolor="#dce4f2"];
+  T [label="NORTH  top : Panel\nBorderLayout", fillcolor="#dce4f2"];
+  R [label="CENTER  results : List\n(grows in both directions)", fillcolor="#e3f4ea", color="#1baf7a"];
+  B [label="SOUTH  bottom : Panel\nBorderLayout", fillcolor="#dce4f2"];
+  F -> T; F -> R; F -> B;
+  TT [label="NORTH  title : Label"]; SR [label="SOUTH  searchRow : Panel\nFlowLayout(LEFT)", fillcolor="#dce4f2"];
+  T -> TT; T -> SR;
+  s1 [label="Label"]; s2 [label="query : TextField(28)"]; s3 [label="category : Choice"]; s4 [label="search : Button"];
+  SR -> s1; SR -> s2; SR -> s3; SR -> s4;
+  BR [label="CENTER  buttonRow : Panel\nFlowLayout(CENTER)", fillcolor="#dce4f2"]; ST [label="SOUTH  status : Label"];
+  B -> BR; B -> ST;
+  b1 [label="Prev : Button"]; b2 [label="Next : Button"]; b3 [label="Reserve : Button"];
+  BR -> b1; BR -> b2; BR -> b3;
+}

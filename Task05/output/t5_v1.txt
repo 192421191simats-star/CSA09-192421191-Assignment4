@@ -1,0 +1,28 @@
+=== v1 ConverterImplements ===
+  1000 + Convert -> '12.00 USD'
+  screenshot screenshots/t5_v1_a_implements_valid.png  <- Task 5.1 (a implements) - 1000 INR, Convert clicked -> result label 12.00 USD
+  'abc' + Enter (not wired in v1) -> '12.00 USD'
+  'abc' + Convert -> 'Invalid amount'
+  screenshot screenshots/t5_v1_a_implements_invalid.png  <- Task 5.1 (a implements) - 'abc', Convert clicked -> 'Invalid amount'
+  WINDOW_CLOSING sent -> WindowAdapter disposed the frame: displayable=false
+=== v1 ConverterNamedInner ===
+  1000 + Convert -> '12.00 USD'
+  screenshot screenshots/t5_v1_b_named_inner_valid.png  <- Task 5.1 (b named inner) - 1000 INR, Convert clicked -> result label 12.00 USD
+  'abc' + Enter (not wired in v1) -> '12.00 USD'
+  'abc' + Convert -> 'Invalid amount'
+  screenshot screenshots/t5_v1_b_named_inner_invalid.png  <- Task 5.1 (b named inner) - 'abc', Convert clicked -> 'Invalid amount'
+  WINDOW_CLOSING sent -> WindowAdapter disposed the frame: displayable=false
+=== v1 ConverterAnonymous ===
+  1000 + Convert -> '12.00 USD'
+  screenshot screenshots/t5_v1_c_anonymous_valid.png  <- Task 5.1 (c anonymous) - 1000 INR, Convert clicked -> result label 12.00 USD
+  'abc' + Enter (not wired in v1) -> '12.00 USD'
+  'abc' + Convert -> 'Invalid amount'
+  screenshot screenshots/t5_v1_c_anonymous_invalid.png  <- Task 5.1 (c anonymous) - 'abc', Convert clicked -> 'Invalid amount'
+  WINDOW_CLOSING sent -> WindowAdapter disposed the frame: displayable=false
+=== v1 ConverterLambda ===
+  1000 + Convert -> '12.00 USD'
+  screenshot screenshots/t5_v1_d_lambda_valid.png  <- Task 5.1 (d lambda) - 1000 INR, Convert clicked -> result label 12.00 USD
+  'abc' + Enter (not wired in v1) -> '12.00 USD'
+  'abc' + Convert -> 'Invalid amount'
+  screenshot screenshots/t5_v1_d_lambda_invalid.png  <- Task 5.1 (d lambda) - 'abc', Convert clicked -> 'Invalid amount'
+  WINDOW_CLOSING sent -> WindowAdapter disposed the frame: displayable=false

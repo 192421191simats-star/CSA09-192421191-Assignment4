@@ -1,0 +1,9 @@
+=== Complete the Code: Converter (lambda) ===
+  packed size 301x35 - the result label (' ') was sized empty;
+  a result would wrap to a 2nd FlowLayout row outside the window, so the window is made wider
+  1000 INR, USD, Convert clicked -> '12.00 USD'
+  screenshot screenshots/t5_complete_valid_usd.png  <- Task 5 Complete the Code - valid amount: 1000 INR, USD, Convert button clicked -> 12.00 USD
+  2500 INR, EUR, Enter pressed -> '27.50 EUR'
+  screenshot screenshots/t5_complete_valid_eur_enter.png  <- Task 5 Complete the Code - Enter key in the amount field (same listener): 2500 INR -> 27.50 EUR
+  '12a', Convert -> 'Invalid amount'
+  screenshot screenshots/t5_complete_invalid.png  <- Task 5 Complete the Code - invalid amount '12a' -> 'Invalid amount'

@@ -1,0 +1,22 @@
+digraph G {
+  rankdir=LR; nodesep=0.3; ranksep=0.55;
+  node [shape=box, fontname="Helvetica", fontsize=9, style="rounded,filled", fillcolor="#f4f6fb", color="#1f3a68"];
+  edge [fontname="Helvetica", fontsize=8, color="#555555"];
+  start [shape=circle, label="", width=0.2, fillcolor="#1f3a68"];
+  boot [label="Start-up SwingWorker\nload events (+ sample data)\nRegister disabled until done"];
+  reg [label="Screen 1: Register\n(CardLayout 'register')\nform + Register / Clear", fillcolor="#dce4f2"];
+  list [label="Screen 2: Registrations\n(CardLayout 'list')\nfilter, JTable, Prev/Next, Export", fillcolor="#dce4f2"];
+  dup [label="Dialog: Duplicate registration\n(JOptionPane WARNING)", style="rounded,dashed"];
+  dberr [label="Dialog: Database error\n(JOptionPane ERROR)", style="rounded,dashed"];
+  chooser [label="Dialog: JFileChooser\nExport registrations as CSV", style="rounded,dashed"];
+  about [label="Dialog: About", style="rounded,dashed"];
+  end [shape=doublecircle, label="", width=0.15, fillcolor="#1f3a68"];
+  start -> boot -> reg;
+  reg -> list [label="View > Registrations (Ctrl+2)"];
+  list -> reg [label="View > Register student (Ctrl+1)"];
+  reg -> dup [label="Register: duplicate"]; dup -> reg [label="OK"];
+  reg -> dberr [label="SQL failure"]; list -> dberr;
+  list -> chooser [label="Export CSV... / File > Export (Ctrl+E)"]; chooser -> list [label="Save / Cancel"];
+  reg -> about [label="Help > About"]; about -> reg;
+  reg -> end [label="File > Exit / close"]; list -> end;
+}

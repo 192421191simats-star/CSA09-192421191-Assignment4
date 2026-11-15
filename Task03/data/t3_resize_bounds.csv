@@ -1,0 +1,25 @@
+window,region,x,y,width,height
+520x340,title,0,0,520,29
+520x340,search row,0,29,520,43
+520x340,text field,99,35,234,31
+520x340,Search button,424,39,55,23
+520x340,results area,0,72,520,212
+520x340,button row,0,284,520,35
+520x340,Next button,229,290,41,23
+520x340,status,0,319,520,21
+800x520,title,0,0,800,29
+800x520,search row,0,29,800,43
+800x520,text field,99,35,234,31
+800x520,Search button,424,39,55,23
+800x520,results area,0,72,800,392
+800x520,button row,0,464,800,35
+800x520,Next button,369,470,41,23
+800x520,status,0,499,800,21
+1100x720,title,0,0,1100,29
+1100x720,search row,0,29,1100,43
+1100x720,text field,99,35,234,31
+1100x720,Search button,424,39,55,23
+1100x720,results area,0,72,1100,592
+1100x720,button row,0,664,1100,35
+1100x720,Next button,519,670,41,23
+1100x720,status,0,699,1100,21

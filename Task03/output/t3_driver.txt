@@ -1,0 +1,49 @@
+=== Interactions ===
+  search 'java' -> status: 12 item(s) found for 'java' in All ; rows shown 8
+  screenshot screenshots/t3_1_search_java.png  <- Task 3.3 - typed 'java', clicked Search: matching items listed in the results area, status shows the count
+  selected row 1, Reserve -> Reserved L0005 'Java: The Complete Reference (Ed. 2)' - collect within 2 days
+  screenshot screenshots/t3_2_reserve.png  <- Task 3.3 - second result selected and Reserve clicked: reservation message in the status bar
+  empty search (all 60) + Next -> Page 2 of 8 (60 items) ; Prev enabled true
+  screenshot screenshots/t3_3_paging.png  <- Task 3.3 - all 60 items, Next clicked: page 2 of 8, Prev now enabled
+
+=== 3.4 Resizing: bounds of each region (x, y, width x height) ===
+  window 520x340
+    title             0,   0   520 x 29  
+    search row        0,  29   520 x 43  
+    text field       99,  35   234 x 31  
+    Search button   424,  39    55 x 23  
+    results area      0,  72   520 x 212 
+    button row        0, 284   520 x 35  
+    Next button     229, 290    41 x 23  
+    status            0, 319   520 x 21  
+  screenshot screenshots/t3_4_resize_520x340.png  <- Task 3.4 - window 520 x 340: results area 520 x 212; Search button 55 x 23, Next 41 x 23
+  window 800x520
+    title             0,   0   800 x 29  
+    search row        0,  29   800 x 43  
+    text field       99,  35   234 x 31  
+    Search button   424,  39    55 x 23  
+    results area      0,  72   800 x 392 
+    button row        0, 464   800 x 35  
+    Next button     369, 470    41 x 23  
+    status            0, 499   800 x 21  
+  screenshot screenshots/t3_4_resize_800x520.png  <- Task 3.4 - window 800 x 520: results area 800 x 392; Search button 55 x 23, Next 41 x 23
+  window 1100x720
+    title             0,   0  1100 x 29  
+    search row        0,  29  1100 x 43  
+    text field       99,  35   234 x 31  
+    Search button   424,  39    55 x 23  
+    results area      0,  72  1100 x 592 
+    button row        0, 664  1100 x 35  
+    Next button     519, 670    41 x 23  
+    status            0, 699  1100 x 21  
+  screenshot screenshots/t3_4_resize_1100x720.png  <- Task 3.4 - window 1100 x 720: results area 1100 x 592; Search button 55 x 23, Next 41 x 23
+
+=== Alternatives at 1100 x 720 ===
+  screenshot screenshots/t3_alt_gridbag_1100x720.png  <- Task 3 alternative - GridBagLayout at 1100 x 720: results grow (weighty = 1), other rows keep their height
+  screenshot screenshots/t3_alt_null_layout_1100x720.png  <- Task 3 alternative - null layout at 1100 x 720: nothing moves or grows, empty space on the right and bottom
+  screenshot screenshots/t3_alt_null_layout_480x300.png  <- Task 3 alternative - null layout at 480 x 300: Search button, list, buttons and status are cut off
+
+=== Layout computation time (invalidate + validate, mean of 2,000) and containers ===
+  nested Border/Flow panels    containers  5  components 10      67.3 us per full layout
+  single GridBagLayout panel   containers  3  components 11      41.1 us per full layout
+  null layout (setBounds)      containers  1  components 10      19.6 us per full layout

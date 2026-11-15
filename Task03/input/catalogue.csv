@@ -1,0 +1,61 @@
+id,title,author,category,copiesAvailable
+L0001,Introduction to Algorithms (Ed. 1),Cormen,Journals,2
+L0002,Introduction to Algorithms (Ed. 2),Cormen,Books,3
+L0003,Introduction to Algorithms (Ed. 3),Cormen,Theses,1
+L0004,Java: The Complete Reference (Ed. 1),Schildt,Books,0
+L0005,Java: The Complete Reference (Ed. 2),Schildt,Books,3
+L0006,Java: The Complete Reference (Ed. 3),Schildt,E-books,0
+L0007,Effective Java (Ed. 1),Bloch,Journals,4
+L0008,Effective Java (Ed. 2),Bloch,E-books,2
+L0009,Effective Java (Ed. 3),Bloch,Journals,0
+L0010,Clean Code (Ed. 1),Martin,E-books,1
+L0011,Clean Code (Ed. 2),Martin,Books,2
+L0012,Clean Code (Ed. 3),Martin,E-books,1
+L0013,Operating System Concepts (Ed. 1),Silberschatz,Journals,2
+L0014,Operating System Concepts (Ed. 2),Silberschatz,E-books,2
+L0015,Operating System Concepts (Ed. 3),Silberschatz,Books,4
+L0016,Computer Networks (Ed. 1),Tanenbaum,E-books,3
+L0017,Computer Networks (Ed. 2),Tanenbaum,Journals,1
+L0018,Computer Networks (Ed. 3),Tanenbaum,Journals,3
+L0019,Database System Concepts (Ed. 1),Korth,E-books,0
+L0020,Database System Concepts (Ed. 2),Korth,E-books,0
+L0021,Database System Concepts (Ed. 3),Korth,E-books,4
+L0022,Artificial Intelligence: A Modern Approach (Ed. 1),Russell,E-books,4
+L0023,Artificial Intelligence: A Modern Approach (Ed. 2),Russell,Journals,3
+L0024,Artificial Intelligence: A Modern Approach (Ed. 3),Russell,Theses,4
+L0025,Head First Java (Ed. 1),Sierra,E-books,3
+L0026,Head First Java (Ed. 2),Sierra,Theses,1
+L0027,Head First Java (Ed. 3),Sierra,Journals,2
+L0028,Design Patterns (Ed. 1),Gamma,E-books,0
+L0029,Design Patterns (Ed. 2),Gamma,Books,0
+L0030,Design Patterns (Ed. 3),Gamma,Theses,2
+L0031,Discrete Mathematics (Ed. 1),Rosen,Theses,2
+L0032,Discrete Mathematics (Ed. 2),Rosen,Journals,1
+L0033,Discrete Mathematics (Ed. 3),Rosen,Books,3
+L0034,Digital Logic Design (Ed. 1),Mano,Journals,3
+L0035,Digital Logic Design (Ed. 2),Mano,E-books,1
+L0036,Digital Logic Design (Ed. 3),Mano,E-books,3
+L0037,Signals and Systems (Ed. 1),Oppenheim,E-books,4
+L0038,Signals and Systems (Ed. 2),Oppenheim,Journals,2
+L0039,Signals and Systems (Ed. 3),Oppenheim,Books,0
+L0040,Engineering Mathematics (Ed. 1),Grewal,Journals,2
+L0041,Engineering Mathematics (Ed. 2),Grewal,Journals,0
+L0042,Engineering Mathematics (Ed. 3),Grewal,E-books,1
+L0043,Data Structures in Java (Ed. 1),Lafore,E-books,3
+L0044,Data Structures in Java (Ed. 2),Lafore,Books,0
+L0045,Data Structures in Java (Ed. 3),Lafore,E-books,0
+L0046,Compilers: Principles and Techniques (Ed. 1),Aho,E-books,2
+L0047,Compilers: Principles and Techniques (Ed. 2),Aho,Books,2
+L0048,Compilers: Principles and Techniques (Ed. 3),Aho,E-books,2
+L0049,Software Engineering (Ed. 1),Pressman,Journals,3
+L0050,Software Engineering (Ed. 2),Pressman,Books,2
+L0051,Software Engineering (Ed. 3),Pressman,Journals,3
+L0052,Machine Learning (Ed. 1),Mitchell,E-books,1
+L0053,Machine Learning (Ed. 2),Mitchell,E-books,3
+L0054,Machine Learning (Ed. 3),Mitchell,Journals,2
+L0055,Computer Architecture (Ed. 1),Hennessy,Books,2
+L0056,Computer Architecture (Ed. 2),Hennessy,Books,3
+L0057,Computer Architecture (Ed. 3),Hennessy,Journals,2
+L0058,Theory of Computation (Ed. 1),Sipser,E-books,2
+L0059,Theory of Computation (Ed. 2),Sipser,Books,3
+L0060,Theory of Computation (Ed. 3),Sipser,Journals,3

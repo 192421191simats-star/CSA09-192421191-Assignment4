@@ -1,0 +1,20 @@
+digraph G {
+  rankdir=TB; nodesep=0.2; ranksep=0.35;
+  node [shape=box, fontname="Helvetica", fontsize=9, style="rounded,filled", fillcolor="#f4f6fb", color="#1f3a68"];
+  edge [color="#666666", arrowsize=0.6];
+  F [label="AppointmentDesk : JFrame\ncontent pane: BorderLayout", fillcolor="#dce4f2"];
+  H [label="NORTH  header : JLabel"];
+  P [label="CENTER  form : JPanel\nGridBagLayout (2 columns)", fillcolor="#dce4f2"];
+  S [label="SOUTH  south : JPanel\nBorderLayout", fillcolor="#dce4f2"];
+  F -> H; F -> P; F -> S;
+  L1 [label="JLabel x4\n(Patient ID, Department,\nDoctor, Time slot)"];
+  T [label="patientId : JTextField"]; D [label="department : JComboBox<String>"];
+  SP [label="JScrollPane"]; DL [label="doctors : JList<Doctor>\n(DefaultListModel)"]; SL [label="slot : JComboBox<String>"];
+  P -> L1; P -> T; P -> D; P -> SP; SP -> DL; P -> SL;
+  B [label="NORTH  buttons : JPanel\nFlowLayout", fillcolor="#dce4f2"]; ST [label="SOUTH  status : JLabel"];
+  S -> B; S -> ST;
+  BB [label="book : JButton"]; BC [label="clear : JButton"];
+  B -> BB; B -> BC;
+  DLG [label="JOptionPane confirm dialog\n(modal JDialog, created on close)", style="rounded,dashed"];
+  F -> DLG [style=dashed, label=" owner", fontsize=8, fontname="Helvetica"];
+}

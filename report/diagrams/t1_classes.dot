@@ -1,0 +1,21 @@
+digraph G {
+  rankdir=LR; nodesep=0.35; ranksep=0.5;
+  node [shape=record, fontname="Helvetica", fontsize=9, style=filled, fillcolor="#f4f6fb", color="#1f3a68"];
+  edge [fontname="Helvetica", fontsize=8, color="#444444"];
+  FeeWindow [label="{FeeWindow\n(UI only, extends JFrame)|regNo, amount : JTextField\lpay, clear, receipt : JButton\lstatus : JLabel\l|onPay()  // validate, then SwingWorker\lonClear()\lonReceipt()\l}"];
+  FeeService [label="{FeeService\n(no Swing, no SQL)|MAX = Rs 2,00,000\l|validate(regNo, amountText) : BigDecimal\lpay(regNo, amountText) : Payment\lreceiptFor(regNo) : Payment\l}"];
+  PaymentGateway [label="{«interface»\nPaymentGateway|charge(regNo, amount) : String\l}"];
+  SimBank [label="{SimulatedBankGateway|delayMs\l}"];
+  FeeRepository [label="{«interface»\nFeeRepository|save(Payment)\llatestFor(regNo) : Optional\l}"];
+  Jdbc [label="{JdbcFeeRepository|PreparedStatement INSERT / SELECT\ltry-with-resources\l}"];
+  Mem [label="{InMemoryFeeRepository\n(tests)}"];
+  Payment [label="{«record» Payment|receiptNo, regNo, amount : BigDecimal,\lbankReference, paidAt\l}"];
+  Exc [label="{FeeValidationException\lPaymentFailedException\l(checked)}"];
+  FeeWindow -> FeeService [label="uses"];
+  FeeService -> PaymentGateway; FeeService -> FeeRepository;
+  SimBank -> PaymentGateway [arrowhead=empty, style=dashed];
+  Jdbc -> FeeRepository [arrowhead=empty, style=dashed];
+  Mem -> FeeRepository [arrowhead=empty, style=dashed];
+  FeeService -> Payment [label="creates", style=dotted];
+  FeeService -> Exc [label="throws", style=dotted];
+}

@@ -1,0 +1,45 @@
+[     0 ms] constructor: building components
+[   113 ms] constructor finished: pack() done
+[   138 ms] windowActivated
+[   141 ms] windowOpened
+[  1325 ms] --- driver: window shown
+[  1734 ms] --- driver: type patient ID P104233
+[  6246 ms] --- driver: choose department Cardiology
+[  7191 ms] itemStateChanged(department, DESELECTED -- select --)
+[  7193 ms] itemStateChanged(department, SELECTED Cardiology)
+[  7199 ms]   refreshDoctors(): 3 doctor(s) for Cardiology
+[  7994 ms] --- driver: change department to Paediatrics
+[  8952 ms] itemStateChanged(department, DESELECTED Cardiology)
+[  8952 ms] itemStateChanged(department, SELECTED Paediatrics)
+[  8952 ms]   refreshDoctors(): 3 doctor(s) for Paediatrics
+[ 10031 ms] --- driver: click first doctor, choose 2nd slot, click Book
+[ 10115 ms] valueChanged(doctor list) -> Dr. Priya Natarajan (D301)
+[ 10118 ms] actionPerformed(slot) -> 09:00
+[ 10118 ms]   refreshSlots(): 4 free slot(s)
+[ 11542 ms] actionPerformed(slot) -> 09:15
+[ 12401 ms] actionPerformed(Book)
+[ 12408 ms]   book() -> CONFIRMED: Booked APT-5001: P104233 with Dr. Priya Natarajan (Paediatrics) at 09:15.
+[ 12409 ms] actionPerformed(slot) -> null
+[ 12409 ms] actionPerformed(slot) -> 09:00
+[ 12409 ms]   refreshSlots(): 3 free slot(s)
+[ 13332 ms] --- driver: invalid patient ID '12345'
+[ 18091 ms] actionPerformed(Book)
+[ 18092 ms]   book() -> ERROR: Patient ID must be P followed by 6 digits (e.g. P104233).
+[ 18818 ms] --- driver: Clear, then Book with no department
+[ 18903 ms] actionPerformed(Clear)
+[ 18904 ms] itemStateChanged(department, DESELECTED Paediatrics)
+[ 18904 ms] itemStateChanged(department, SELECTED -- select --)
+[ 18904 ms] valueChanged(doctor list) -> null
+[ 18904 ms] actionPerformed(slot) -> null
+[ 18905 ms]   refreshSlots(): 0 free slot(s)
+[ 18905 ms]   refreshDoctors(): 0 doctor(s) for -- select --
+[ 23782 ms] actionPerformed(Book)
+[ 23782 ms]   book() -> ERROR: Select a department.
+[ 24453 ms] --- driver: close button pressed while a booking is in progress
+[ 24458 ms] windowClosing (booking in progress = true)
+[ 24488 ms] windowDeactivated
+[ 26546 ms]   confirm dialog answered: NO
+[ 27913 ms] --- driver: close again and answer Yes
+[ 27914 ms] windowClosing (booking in progress = true)
+[ 29033 ms]   confirm dialog answered: YES
+[ 29036 ms] windowClosed

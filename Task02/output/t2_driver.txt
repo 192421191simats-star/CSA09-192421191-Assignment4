@@ -1,0 +1,55 @@
+  TRACE [     0 ms] constructor: building components
+  TRACE [   113 ms] constructor finished: pack() done
+  TRACE [   138 ms] windowActivated
+  TRACE [   141 ms] windowOpened
+  TRACE [  1325 ms] --- driver: window shown
+  screenshot screenshots/t2_1_opened.png  <- Task 2 - desk opened: departments loaded once from input/doctors.csv into a Map; doctor list empty
+  TRACE [  1734 ms] --- driver: type patient ID P104233
+  TRACE [  6246 ms] --- driver: choose department Cardiology
+  TRACE [  7191 ms] itemStateChanged(department, DESELECTED -- select --)
+  TRACE [  7193 ms] itemStateChanged(department, SELECTED Cardiology)
+  TRACE [  7199 ms]   refreshDoctors(): 3 doctor(s) for Cardiology
+  screenshot screenshots/t2_2_department_cardiology.png  <- Task 2.3(a) - department changed to Cardiology: doctor list refreshed to its 3 doctors
+  TRACE [  7994 ms] --- driver: change department to Paediatrics
+  TRACE [  8952 ms] itemStateChanged(department, DESELECTED Cardiology)
+  TRACE [  8952 ms] itemStateChanged(department, SELECTED Paediatrics)
+  TRACE [  8952 ms]   refreshDoctors(): 3 doctor(s) for Paediatrics
+  screenshot screenshots/t2_3_department_paediatrics.png  <- Task 2.3(a) - department changed to Paediatrics: list replaced by Paediatrics doctors
+  TRACE [ 10031 ms] --- driver: click first doctor, choose 2nd slot, click Book
+  TRACE [ 10115 ms] valueChanged(doctor list) -> Dr. Priya Natarajan (D301)
+  TRACE [ 10118 ms] actionPerformed(slot) -> 09:00
+  TRACE [ 10118 ms]   refreshSlots(): 4 free slot(s)
+  TRACE [ 11542 ms] actionPerformed(slot) -> 09:15
+  TRACE [ 12401 ms] actionPerformed(Book)
+  TRACE [ 12408 ms]   book() -> CONFIRMED: Booked APT-5001: P104233 with Dr. Priya Natarajan (Paediatrics) at 09:15.
+  TRACE [ 12409 ms] actionPerformed(slot) -> null
+  TRACE [ 12409 ms] actionPerformed(slot) -> 09:00
+  TRACE [ 12409 ms]   refreshSlots(): 3 free slot(s)
+  screenshot screenshots/t2_4_booked.png  <- Task 2.3(b) - valid booking: confirmation shown, booked slot removed from the free slots
+  TRACE [ 13332 ms] --- driver: invalid patient ID '12345'
+  TRACE [ 18091 ms] actionPerformed(Book)
+  TRACE [ 18092 ms]   book() -> ERROR: Patient ID must be P followed by 6 digits (e.g. P104233).
+  screenshot screenshots/t2_5_invalid_id.png  <- Task 2.3(b) - invalid patient ID: error message, nothing booked
+  TRACE [ 18818 ms] --- driver: Clear, then Book with no department
+  TRACE [ 18903 ms] actionPerformed(Clear)
+  TRACE [ 18904 ms] itemStateChanged(department, DESELECTED Paediatrics)
+  TRACE [ 18904 ms] itemStateChanged(department, SELECTED -- select --)
+  TRACE [ 18904 ms] valueChanged(doctor list) -> null
+  TRACE [ 18904 ms] actionPerformed(slot) -> null
+  TRACE [ 18905 ms]   refreshSlots(): 0 free slot(s)
+  TRACE [ 18905 ms]   refreshDoctors(): 0 doctor(s) for -- select --
+  TRACE [ 23782 ms] actionPerformed(Book)
+  TRACE [ 23782 ms]   book() -> ERROR: Select a department.
+  screenshot screenshots/t2_6_no_department.png  <- Task 2.3(b) - no department selected: error message
+  TRACE [ 24453 ms] --- driver: close button pressed while a booking is in progress
+  TRACE [ 24458 ms] windowClosing (booking in progress = true)
+  TRACE [ 24488 ms] windowDeactivated
+  screenshot screenshots/t2_7_close_confirm.png  <- Task 2 - closing with a booking in progress: confirmation dialog appears (DO_NOTHING_ON_CLOSE + windowClosing)
+  TRACE [ 26546 ms]   confirm dialog answered: NO
+  screenshot screenshots/t2_8_after_no.png  <- Task 2 - answered No: the desk stays open with the entered data
+  TRACE [ 27913 ms] --- driver: close again and answer Yes
+  TRACE [ 27914 ms] windowClosing (booking in progress = true)
+  TRACE [ 29033 ms]   confirm dialog answered: YES
+  TRACE [ 29036 ms] windowClosed
+window displayable after Yes: false
+event trace written to output/t2_event_trace.txt (45 lines)

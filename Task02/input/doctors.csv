@@ -1,0 +1,12 @@
+# department,doctorId,doctorName,slots (semicolon separated)
+Cardiology,D101,Dr. Anitha Rao,09:00;09:30;10:00;10:30;11:00
+Cardiology,D102,Dr. Vikram Sethi,14:00;14:30;15:00
+Cardiology,D103,Dr. Farah Khan,11:30;12:00
+Orthopaedics,D201,Dr. Suresh Babu,09:00;10:00;11:00;12:00
+Orthopaedics,D202,Dr. Lakshmi Menon,15:00;16:00
+Paediatrics,D301,Dr. Priya Natarajan,09:00;09:15;09:30;09:45
+Paediatrics,D302,Dr. Arjun Das,13:00;13:30;14:00
+Paediatrics,D303,Dr. Kavya Iyer,16:00;16:30
+Dermatology,D401,Dr. Mohan Raj,10:00;11:00;12:00
+ENT,D501,Dr. Sneha Pillai,09:00;09:20;09:40;10:00
+ENT,D502,Dr. Rahul Verma,15:00;15:20

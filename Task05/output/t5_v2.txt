@@ -1,0 +1,20 @@
+=== v2 ConverterImplements ===
+  2500 + Enter -> dialog shown: true text: 2500.00 INR = 30.00 USD
+  screenshot screenshots/t5_v2_a_implements_enter_dialog.png  <- Task 5.2 (a implements) - Enter pressed in the amount field -> result shown in a dialog
+  'abc' + Convert -> error dialog: true text: Invalid amount
+  screenshot screenshots/t5_v2_a_implements_invalid_dialog.png  <- Task 5.2 (a implements) - invalid amount -> error dialog
+=== v2 ConverterNamedInner ===
+  2500 + Enter -> dialog shown: true text: 2500.00 INR = 30.00 USD
+  screenshot screenshots/t5_v2_b_named_inner_enter_dialog.png  <- Task 5.2 (b named inner) - Enter pressed in the amount field -> result shown in a dialog
+  'abc' + Convert -> error dialog: true text: Invalid amount
+  screenshot screenshots/t5_v2_b_named_inner_invalid_dialog.png  <- Task 5.2 (b named inner) - invalid amount -> error dialog
+=== v2 ConverterAnonymous ===
+  2500 + Enter -> dialog shown: true text: 2500.00 INR = 30.00 USD
+  screenshot screenshots/t5_v2_c_anonymous_enter_dialog.png  <- Task 5.2 (c anonymous) - Enter pressed in the amount field -> result shown in a dialog
+  'abc' + Convert -> error dialog: true text: Invalid amount
+  screenshot screenshots/t5_v2_c_anonymous_invalid_dialog.png  <- Task 5.2 (c anonymous) - invalid amount -> error dialog
+=== v2 ConverterLambda ===
+  2500 + Enter -> dialog shown: true text: 2500.00 INR = 30.00 USD
+  screenshot screenshots/t5_v2_d_lambda_enter_dialog.png  <- Task 5.2 (d lambda) - Enter pressed in the amount field -> result shown in a dialog
+  'abc' + Convert -> error dialog: true text: Invalid amount
+  screenshot screenshots/t5_v2_d_lambda_invalid_dialog.png  <- Task 5.2 (d lambda) - invalid amount -> error dialog

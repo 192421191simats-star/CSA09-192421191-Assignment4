@@ -1,0 +1,134 @@
+Task 5.2 - change effort: lines added / removed per style (diff styles/v1 -> styles/v2)
+ConverterImplements    +5   -3
+ConverterNamedInner    +6   -3
+ConverterAnonymous     +7   -4
+ConverterLambda        +4   -2
+
+----- ConverterImplements
+@@ -8,6 +8,7 @@
+ import javax.swing.JComboBox;
+ import javax.swing.JFrame;
+ import javax.swing.JLabel;
++import javax.swing.JOptionPane;
+ import javax.swing.JTextField;
+ 
+ public class ConverterImplements extends JFrame implements ActionListener {
+@@ -21,6 +22,7 @@
+         setLayout(new FlowLayout());
+         add(new JLabel("INR")); add(amount); add(target); add(convert); add(result);
+         convert.addActionListener(this);
++        amount.addActionListener(this);                       // Enter key in the amount field
+         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+         addWindowListener(new WindowAdapter() {
+             @Override public void windowClosing(WindowEvent e) { dispose(); }
+@@ -29,13 +31,13 @@
+     }
+ 
+     @Override public void actionPerformed(ActionEvent e) {
+-        if (e.getSource() == convert) {
++        if (e.getSource() == convert || e.getSource() == amount) {
+             String cur = (String) target.getSelectedItem();
+             try {
+                 double inr = Double.parseDouble(amount.getText().trim());
+-                result.setText(String.format("%.2f %s", inr * Rates.of(cur), cur));
++                JOptionPane.showMessageDialog(ConverterImplements.this, String.format("%.2f INR = %.2f %s", inr, inr * Rates.of(cur), cur));
+             } catch (NumberFormatException ex) {
+-                result.setText("Invalid amount");
++                JOptionPane.showMessageDialog(ConverterImplements.this, "Invalid amount", "Error", JOptionPane.ERROR_MESSAGE);
+             }
+         }
+     }
+----- ConverterNamedInner
+@@ -8,6 +8,7 @@
+ import javax.swing.JComboBox;
+ import javax.swing.JFrame;
+ import javax.swing.JLabel;
++import javax.swing.JOptionPane;
+ import javax.swing.JTextField;
+ 
+ public class ConverterNamedInner extends JFrame {
+@@ -22,9 +23,9 @@
+             String cur = (String) target.getSelectedItem();
+             try {
+                 double inr = Double.parseDouble(amount.getText().trim());
+-                result.setText(String.format("%.2f %s", inr * Rates.of(cur), cur));
++                JOptionPane.showMessageDialog(ConverterNamedInner.this, String.format("%.2f INR = %.2f %s", inr, inr * Rates.of(cur), cur));
+             } catch (NumberFormatException ex) {
+-                result.setText("Invalid amount");
++                JOptionPane.showMessageDialog(ConverterNamedInner.this, "Invalid amount", "Error", JOptionPane.ERROR_MESSAGE);
+             }
+         }
+     }
+@@ -33,7 +34,9 @@
+         super("Converter (b) named inner class");
+         setLayout(new FlowLayout());
+         add(new JLabel("INR")); add(amount); add(target); add(convert); add(result);
+-        convert.addActionListener(new ConvertHandler());
++        ConvertHandler handler = new ConvertHandler();       // one handler object, reused
++        convert.addActionListener(handler);
++        amount.addActionListener(handler);
+         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+         addWindowListener(new WindowAdapter() {
+             @Override public void windowClosing(WindowEvent e) { dispose(); }
+----- ConverterAnonymous
+@@ -8,6 +8,7 @@
+ import javax.swing.JComboBox;
+ import javax.swing.JFrame;
+ import javax.swing.JLabel;
++import javax.swing.JOptionPane;
+ import javax.swing.JTextField;
+ 
+ public class ConverterAnonymous extends JFrame {
+@@ -20,17 +21,19 @@
+         super("Converter (c) anonymous inner class");
+         setLayout(new FlowLayout());
+         add(new JLabel("INR")); add(amount); add(target); add(convert); add(result);
+-        convert.addActionListener(new ActionListener() {
++        ActionListener onConvert = new ActionListener() {    // anonymous object now stored so it can be shared
+             @Override public void actionPerformed(ActionEvent e) {
+                 String cur = (String) target.getSelectedItem();
+                 try {
+                     double inr = Double.parseDouble(amount.getText().trim());
+-                    result.setText(String.format("%.2f %s", inr * Rates.of(cur), cur));
++                    JOptionPane.showMessageDialog(ConverterAnonymous.this, String.format("%.2f INR = %.2f %s", inr, inr * Rates.of(cur), cur));
+                 } catch (NumberFormatException ex) {
+-                    result.setText("Invalid amount");
++                    JOptionPane.showMessageDialog(ConverterAnonymous.this, "Invalid amount", "Error", JOptionPane.ERROR_MESSAGE);
+                 }
+             }
+-        });
++        };
++        convert.addActionListener(onConvert);
++        amount.addActionListener(onConvert);
+         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+         addWindowListener(new WindowAdapter() {
+             @Override public void windowClosing(WindowEvent e) { dispose(); }
+----- ConverterLambda
+@@ -6,6 +6,7 @@
+ import javax.swing.JComboBox;
+ import javax.swing.JFrame;
+ import javax.swing.JLabel;
++import javax.swing.JOptionPane;
+ import javax.swing.JTextField;
+ 
+ public class ConverterLambda extends JFrame {
+@@ -19,6 +20,7 @@
+         setLayout(new FlowLayout());
+         add(new JLabel("INR")); add(amount); add(target); add(convert); add(result);
+         convert.addActionListener(e -> convert());
++        amount.addActionListener(e -> convert());             // Enter key in the amount field
+         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+         addWindowListener(new WindowAdapter() {
+             @Override public void windowClosing(WindowEvent e) { dispose(); }
+@@ -30,9 +32,9 @@
+         String cur = (String) target.getSelectedItem();
+         try {
+             double inr = Double.parseDouble(amount.getText().trim());
+-            result.setText(String.format("%.2f %s", inr * Rates.of(cur), cur));
++            JOptionPane.showMessageDialog(this, String.format("%.2f INR = %.2f %s", inr, inr * Rates.of(cur), cur));
+         } catch (NumberFormatException ex) {
+-            result.setText("Invalid amount");
++            JOptionPane.showMessageDialog(this, "Invalid amount", "Error", JOptionPane.ERROR_MESSAGE);
+         }
+     }
+ }

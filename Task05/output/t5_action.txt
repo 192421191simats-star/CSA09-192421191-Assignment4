@@ -1,0 +1,6 @@
+=== Alternative: one shared Action ===
+  Ctrl+Enter -> '12.00 USD'
+  screenshot screenshots/t5_action_ctrl_enter.png  <- Task 5 alternative - Ctrl+Enter shortcut runs the same shared Action: 12.00 USD
+  screenshot screenshots/t5_action_disabled.png  <- Task 5 alternative - convertAction.setEnabled(false) disables the button AND the menu item at once
+  shared Action: button, menu item, text field all hold the same object: true
+  method reference written at 2 registrations -> 2 listener objects; stored once -> 1

@@ -1,0 +1,34 @@
+digraph G {
+  rankdir=TB; nodesep=0.25; ranksep=0.45; compound=true;
+  node [shape=record, fontname="Helvetica", fontsize=8.5, style=filled, fillcolor="#f4f6fb", color="#1f3a68"];
+  edge [fontname="Helvetica", fontsize=8, color="#555555"];
+  subgraph cluster_ui { label="campus.ui  (Swing - runs on the EDT)"; fontname="Helvetica-Bold"; fontsize=10; color="#2a78d6";
+    MainFrame [label="{MainFrame : JFrame|JMenuBar File/View/Help\lCardLayout content, statusBar\l|showScreen(name)\lonExport()\l}"];
+    RegisterPanel [label="{RegisterPanel : JPanel|regNo, name, email : JTextField\ldept, year, event : JComboBox\l|onRegister()  // Register action\lshowErrors(ValidationException)\l}"];
+    RegistrationsPanel [label="{RegistrationsPanel : JPanel|filter : JComboBox, table : JTable\lprev, next, export, loading\l|load(pageIndex)  // Filter + paging\lexportTo(Path)\l}"];
+    Model [label="{RegistrationTableModel : AbstractTableModel|rows of ONE page\l|setRows(list)\l}"];
+  }
+  subgraph cluster_service { label="campus.service  (rules - no Swing, no SQL)"; fontname="Helvetica-Bold"; fontsize=10; color="#1baf7a";
+    Service [label="{RegistrationService|PAGE_SIZE = 20, DEPARTMENTS\l|validate(form) : Registration   (R1-R6, fast)\lregister(form) : Registration  (R7, R8)\lpage(eventId, index) : Page   (R10)\lexportCsv(eventId, file) : int (R11)\lloadEvents()\l}"];
+    Ex [label="{ValidationException (field \-\> message)\lDuplicateRegistrationException\l}"];
+  }
+  subgraph cluster_dao { label="campus.dao  (JDBC)"; fontname="Helvetica-Bold"; fontsize=10; color="#eb6834";
+    EventDao [label="{EventDao|findAll()\l}"];
+    RegDao [label="{RegistrationDao|exists, insert, insertAll\lcount, page (LIMIT ? OFFSET ?)\lforEach (streaming)\l}"];
+    DAE [label="{DataAccessException\lDuplicateKeyException\l}"];
+  }
+  subgraph cluster_db { label="campus.db"; fontname="Helvetica-Bold"; fontsize=10; color="#6250d6";
+    CF [label="{ConnectionFactory|url, user, password\l(db.properties)\l|open() : Connection\l}"];
+    MySQL [label="{MySQL 8 + Connector/J\lsql/schema.sql\l}", fillcolor="#ffffff"];
+    Fake [label="{testdouble.FakeCampusDriver\l(offline demo only)\l}", fillcolor="#ffffff", style="filled,dashed"];
+  }
+  subgraph cluster_model { label="campus.model (records)"; fontname="Helvetica-Bold"; fontsize=10; color="#888888";
+    M [label="{Event \| Registration \| RegistrationForm \| Page}"];
+  }
+  MainFrame -> RegisterPanel; MainFrame -> RegistrationsPanel; RegistrationsPanel -> Model;
+  RegisterPanel -> Service [label="SwingWorker"]; RegistrationsPanel -> Service [label="SwingWorker"];
+  Service -> EventDao; Service -> RegDao; Service -> Ex [style=dotted, label="throws"];
+  EventDao -> CF; RegDao -> CF; RegDao -> DAE [style=dotted];
+  CF -> MySQL [label="jdbc:mysql:"]; CF -> Fake [style=dashed, label="jdbc:campusdb:"];
+  RegDao -> M [style=dotted, arrowhead=none];
+}
