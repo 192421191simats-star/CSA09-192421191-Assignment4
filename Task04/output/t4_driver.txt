@@ -1,0 +1,17 @@
+=== 4.1 Original program (as reported) ===
+  after 5 real clicks: count field = 0, label = 'Clicks: 0'
+  screenshot screenshots/t4_1_original_after_5_clicks.png  <- Task 4.1 - original program after 5 real mouse clicks
+=== 4.2 First defect fixed, still using getGraphics() ===
+  after 5 clicks: label = 'Clicks: 5'
+  screenshot screenshots/t4_2a_getGraphics_before_minimise.png  <- Task 4.2 - step 1: five clicks with the name fixed: 5 dots drawn, label 'Clicks: 5'
+  minimised and restored
+  screenshot screenshots/t4_2b_getGraphics_after_restore.png  <- Task 4.2 - step 2: window minimised (hidden) and restored
+=== 4.3 Repaired program (Complete the Code) ===
+  after 5 clicks: label = 'Clicks: 5', stored points = 5
+  screenshot screenshots/t4_3a_repaired_before_minimise.png  <- Task 4.3 (Complete the Code) - before minimising: 5 clicks, 5 dots, label 'Clicks: 5'
+  minimised and restored
+  screenshot screenshots/t4_3b_repaired_after_restore.png  <- Task 4.3 (Complete the Code) - after minimise and restore
+  screenshot screenshots/t4_3c_repaired_after_resize.png  <- Task 4.3 - after resizing the window (another repaint): dots still there
+=== Alternative: BufferedImage version ===
+  minimised and restored
+  screenshot screenshots/t4_alt_buffered_after_restore.png  <- Task 4 alternative - BufferedImage version after minimise and restore: dots survive

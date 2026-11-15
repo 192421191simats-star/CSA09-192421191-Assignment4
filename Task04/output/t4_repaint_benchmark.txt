@@ -1,0 +1,7 @@
+clicks n   stored points: ms/paint BufferedImage copy: ms/paint   points memory KB    image memory KB
+10                          0.066                      0.129                0.3              468.8
+100                         0.459                      0.215                2.7              468.8
+1000                        2.949                      0.411               27.3              468.8
+10000                      16.086                      0.412              273.4              468.8
+100000                    205.179                      0.426             2734.4              468.8
+Raw data: data/t4_repaint.csv

@@ -1,0 +1,1 @@
+compile_error_demo/DrawPadNoOverride.java.txt (mouseclicked, no @Override): compiled with NO error - the defect is silent
